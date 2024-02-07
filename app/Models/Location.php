@@ -1,0 +1,37 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Location extends Model
+{
+    use HasFactory;
+
+    protected $fillable = [
+        'location_name',
+        'location_content',
+        'location_address',
+        'location_postal',
+        'location_city',
+        'location_lat',
+        'location_lng',
+        'category_id',
+        'user_id'
+    ];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function images()
+    {
+        return $this->hasMany(Image::class);
+    }
+}
