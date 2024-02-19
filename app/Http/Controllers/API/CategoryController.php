@@ -18,9 +18,7 @@ class CategoryController extends Controller
             ->get()
             ->toArray();
 
-        return response()->json([
-            'data' => $categories
-        ]);
+        return response()->json($categories);
     }
 
     /**

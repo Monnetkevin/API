@@ -34,6 +34,7 @@ Route::post('/login', [AuthController::class, 'login']);
 
 Route::controller(ArticleController::class)->group(function () {
     Route::get('/articles', 'index');
+    Route::get('/articles/random', 'random');
     Route::post('/articles', 'store')->middleware('auth:api');
     Route::get('/articles/{article}', 'show')->middleware('auth:api');
     Route::post('/articles/{article}', 'update')->middleware('auth:api');

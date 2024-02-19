@@ -46,7 +46,11 @@ class AuthController extends Controller
 
         if ($token) {
             return response()->json([
-                'message' => 'connexion réussite',
+                'meta' => [
+                    'code' => '200',
+                    'message' => 'connexion réussite',
+                ],
+
                 'user' => auth()->user(),
                 'access_token' => [
                     'token' => $token,

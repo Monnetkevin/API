@@ -14,7 +14,7 @@ class LocationController extends Controller
      */
     public function index()
     {
-        $locations = Location::with(['user', 'images'])->get();
+        $locations = Location::with(['user', 'images', 'category'])->get();
         return response()->json($locations);
     }
 
@@ -29,8 +29,8 @@ class LocationController extends Controller
             'location_address' => 'required|string|max:100',
             'location_postal' => 'required|size:5',
             'location_city' => 'required|string|min:4|max:30',
-            'location_lat' => 'nullable|decimal',
-            'location_lng' => 'nullable|decimal',
+            'location_lat' => 'nullable|string',
+            'location_lng' => 'nullable|string',
             'category_id' => 'required',
         ]);
 
